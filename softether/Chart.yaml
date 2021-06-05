@@ -1,0 +1,12 @@
+apiVersion: v2
+
+version: 2.1.0
+appVersion: 3.00-r0-ls60
+
+name: softether
+description: SoftEther VPN Server
+type: application
+
+keywords:
+- softether
+- helm
