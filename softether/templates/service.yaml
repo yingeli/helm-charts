@@ -4,15 +4,15 @@ metadata:
   name: {{ include "softether.fullname" . }}
   labels:
     {{- include "softether.labels" . | nindent 4 }}
-{{- if .Values.service.web.annotations }}
+{{- if .Values.service.softether.annotations }}
   annotations:
-    {{ toYaml .Values.service.web.annotations | nindent 4 }}
+    {{ toYaml .Values.service.softether.annotations | nindent 4 }}
 {{- end }}
 spec:
-  type: {{ .Values.service.web.type }}
-{{- if .Values.service.web.externalIPs }}
+  type: {{ .Values.service.softether.type }}
+{{- if .Values.service.softether.externalIPs }}
   externalIPs:
-    {{ toYaml .Values.service.web.externalIPs | nindent 4 }}
+    {{ toYaml .Values.service.softether.externalIPs | nindent 4 }}
 {{- end }}
   ports:
     - name: softether
