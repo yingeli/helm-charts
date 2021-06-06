@@ -19,7 +19,28 @@ spec:
       targetPort: softether
       port: {{ .Values.service.port }}
       protocol: TCP
-    {{- if and .Values.service.l2tp.enabled }}
+  selector:
+    {{- include "softether.selectorLabels" . | nindent 4 }}
+
+---    
+{{- if and .Values.service.l2tp.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "softether.fullname" . }}-l2tp
+  labels:
+    {{- include "softether.labels" . | nindent 4 }}
+{{- if .Values.service.l2tp.annotations }}
+  annotations:
+    {{ toYaml .Values.service.l2tp.annotations | nindent 4 }}
+{{- end }}
+spec:
+  type: {{ .Values.service.l2tp.type }}
+{{- if .Values.service.l2tp.externalIPs }}
+  externalIPs:
+    {{ toYaml .Values.service.l2tp.externalIPs | nindent 4 }}
+{{- end }}
+  ports:
     - name: ike
       targetPort: ike
       port: 500
@@ -28,6 +49,6 @@ spec:
       targetPort: ipsec
       port: 4500
       protocol: UDP
-    {{- end }}
   selector:
-    {{- include "softether.selectorLabels" . | nindent 4 }}
+    {{- include "transmission.selectorLabels" . | nindent 4 }}      
+{{- end }}

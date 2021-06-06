@@ -43,6 +43,9 @@ service:
   port: 443
   l2tp:
     enabled: false
+    externalIPs: []
+    annotations: {}
+    type: ClusterIP
 
 ingress:
   enabled: false
