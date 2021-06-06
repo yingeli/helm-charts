@@ -24,6 +24,7 @@ spec:
 
 
 ---
+{{- if and .Values.service.l2tp }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -51,3 +52,4 @@ spec:
       protocol: UDP
   selector:
     {{- include "softether.selectorLabels" . | nindent 4 }}
+{{- end }}
