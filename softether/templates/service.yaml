@@ -21,3 +21,33 @@ spec:
       protocol: TCP
   selector:
     {{- include "softether.selectorLabels" . | nindent 4 }}
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "softether.fullname" . }}-l2tp
+  labels:
+    {{- include "softether.labels" . | nindent 4 }}
+{{- if .Values.service.l2tp.annotations }}
+  annotations:
+    {{ toYaml .Values.service.l2tp.annotations | nindent 4 }}
+{{- end }}
+spec:
+  type: {{ .Values.service.l2tp.type }}
+{{- if .Values.service.l2tp.externalIPs }}
+  externalIPs:
+    {{ toYaml .Values.service.l2tp.externalIPs | nindent 4 }}
+{{- end }}
+  ports:
+    - name: ike
+      targetPort: ike
+      port: 500
+      protocol: UDP
+    - name: ipsec
+      targetPort: ipsec
+      port: 4500
+      protocol: UDP
+  selector:
+    {{- include "softether.selectorLabels" . | nindent 4 }}
