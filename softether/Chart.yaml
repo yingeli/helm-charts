@@ -1,6 +1,7 @@
 apiVersion: v2
 
 version: 0.1.0
+appVersion: 5.01.9674
 
 name: softether
 description: SoftEther VPN Server
