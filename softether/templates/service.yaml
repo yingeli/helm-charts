@@ -42,11 +42,11 @@ spec:
 {{- end }}
   ports:
     - name: ike
-      targetPort: ike
+      targetPort: 500
       port: 500
       protocol: UDP
     - name: ipsec
-      targetPort: ipsec
+      targetPort: 4500
       port: 4500
       protocol: UDP
   selector:
