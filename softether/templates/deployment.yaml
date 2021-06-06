@@ -53,12 +53,8 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-            - mountPath: /config
+            - mountPath: /mnt
               name: config
-            - mountPath: /downloads
-              name: downloads
-            - mountPath: /watch
-              name: watch
       volumes:
       - name: config
       {{- if .Values.persistence.config.enabled }}
