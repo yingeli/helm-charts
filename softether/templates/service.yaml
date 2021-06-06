@@ -50,5 +50,5 @@ spec:
       port: 4500
       protocol: UDP
   selector:
-    {{- include "transmission.selectorLabels" . | nindent 4 }}      
+    {{- include "softether.selectorLabels" . | nindent 4 }}      
 {{- end }}
