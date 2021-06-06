@@ -38,11 +38,11 @@ process:
 
 service:
   externalIPs: []
-  softether:
-    annotations: {}
-    type: ClusterIP
-    port: 443
-    externalIPs: []
+  annotations: {}
+  type: ClusterIP
+  port: 443
+  l2tp:
+    enabled: false
 
 ingress:
   enabled: false
