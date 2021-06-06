@@ -55,6 +55,9 @@ spec:
           volumeMounts:
             - mountPath: /mnt
               name: config
+          securityContext:
+            capabilities:
+              add: ["NET_ADMIN"]              
       volumes:
       - name: config
       {{- if .Values.persistence.config.enabled }}
