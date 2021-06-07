@@ -66,7 +66,7 @@ spec:
           items:
           - key: vpn_server.config
             path: vpn_server.config
-#          defaultMode: 0777
+          defaultMode: 0777
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
