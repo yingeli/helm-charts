@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: toprock/softether
+  repository: siomiz/softethervpn
   # Overrides the image tag whose default is the chart version.
   tag: ""
   pullPolicy: IfNotPresent
