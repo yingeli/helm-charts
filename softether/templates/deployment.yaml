@@ -53,7 +53,7 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-            - mountPath: /mnt
+            - mountPath: /usr/vpnserver/vpn_server.config
               name: config
           securityContext:
             capabilities:
