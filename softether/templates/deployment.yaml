@@ -58,12 +58,15 @@ spec:
               name: config
           securityContext:
             capabilities:
-              add: ["NET_ADMIN"]              
+              add: ["NET_ADMIN"]      
       volumes:
       - name: config
         configMap:
           name: {{ include "softether.fullname" . }}-config
-          defaultMode: 0777
+          items:
+          - key: vpn_server.config
+            path: vpn_server.config
+#          defaultMode: 0777
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
