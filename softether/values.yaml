@@ -98,3 +98,7 @@ persistence:
     ##   GKE, AWS & OpenStack)
     ##
     # storageClass: "-"
+
+vpn_server:
+  config: |
+    # blank vpn_server.config file
