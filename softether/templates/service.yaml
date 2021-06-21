@@ -10,6 +10,10 @@ metadata:
 {{- end }}
 spec:
   type: {{ .Values.service.type }}
+{{- if .Values.service.loadBalancerIP }}
+  loadBalancerIP:
+    {{ toYaml .Values.service.loadBalancerIP | nindent 4 }}
+{{- end }}
 {{- if .Values.service.externalIPs }}
   externalIPs:
     {{ toYaml .Values.service.externalIPs | nindent 4 }}
@@ -36,6 +40,10 @@ metadata:
 {{- end }}
 spec:
   type: {{ .Values.service.l2tp.type }}
+{{- if .Values.service.l2tp.loadBalancerIP }}
+  loadBalancerIP:
+    {{ toYaml .Values.service.l2tp.loadBalancerIP | nindent 4 }}
+{{- end }}  
 {{- if .Values.service.l2tp.externalIPs }}
   externalIPs:
     {{ toYaml .Values.service.l2tp.externalIPs | nindent 4 }}
